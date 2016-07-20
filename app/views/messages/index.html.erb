@@ -1,7 +1,7 @@
+<%# 表示  %>
 <div class="panel panel-default">
     <div class="panel-heading">
         <h1>メッセージ一覧</h1>
-        <%# 表示  %>
     </div>
     <div class="panel-body">
         <% @messages.each do |message| %>
@@ -15,10 +15,22 @@
 
 <%# 入力 %>
 <%= form_for(@message) do |f| %>
-    名前：
-    <%= f.text_field :name %>
-    
-    内容：
-    <%= f.text_field :body %>
-    <%= f.submit %>
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <div class="panel-title">
+            入力
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class="form-group">
+            <label>名前：</label><br>
+            <%= f.text_field :name %>  
+        </div>
+        <div class="form-group">
+            <label>内容：</label><br>
+            <%= f.text_area :body, cols:60, rows:5 %>
+        </div>
+        <%= f.submit class:"btn btn-sm btn-primary"%>
+    </div>
+</div>
 <% end %>
