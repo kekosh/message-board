@@ -14,7 +14,7 @@
 
 
 <%# 入力 %>
-<%= form_for(@message) do |f| %>
+<%= form_for(@message,html:{class:"form-horizontal"}) do |f| %>
 <div class="panel panel-info">
     <div class="panel-heading">
         <div class="panel-title">
@@ -23,14 +23,22 @@
     </div>
     <div class="panel-body">
         <div class="form-group">
-            <label>名前：</label><br>
-            <%= f.text_field :name %>  
-        </div>
+            <label for="message_name" class="col-sm-2 control-label">名前：</label>
+            <div class="col-sm-9">
+                <%= f.text_field :name, class:"form-control" %>  
+            </div>
+            <div class="col-sm-1"></div>
+        </div>  
         <div class="form-group">
-            <label>内容：</label><br>
-            <%= f.text_area :body, cols:60, rows:5 %>
+            <label for="message_body" class="col-sm-2 control-label">内容：</label>
+            <div class="col-sm-9">
+                <%= f.text_area :body, class:"form-control" %>
+            </div>
+            <div class="col-sm-1"></div>
         </div>
-        <%= f.submit class:"btn btn-sm btn-primary"%>
+        <div class="col-sm-2"></div>
+            <%= f.submit class:"btn btn-sm btn-primary col-sm-9" %>
+        <div class="col-sm-1"></div>
     </div>
 </div>
 <% end %>
